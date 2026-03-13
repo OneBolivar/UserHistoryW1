@@ -2,7 +2,7 @@ VALIDATOR_NAME = True
 while VALIDATOR_NAME:
         product_name = input("Enter the product name: ").strip()
         if product_name == "":
-            print("ERROR! Name cannot be empty.")
+            print("ERROR! Name cannot be empty. ")
         else:
             VALIDATOR_NAME = False 
 VALIDATOR_PRICE = True
