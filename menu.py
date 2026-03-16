@@ -1,0 +1,30 @@
+from Option1 import OptionNumber1
+def MenuOptions():
+    VALIDATOR = True
+    while VALIDATOR:
+        print("                   Welcome")
+        print("=" * 50)
+        print("=" * 50)
+        print("1. Add product")
+        print("2. Show inventory")
+        print("3. Calculates statistics")
+        print("4. Exit")
+        
+        #---------------------------------------------------------
+        VALIDATOR_OPTIONS = True
+        try:
+            while VALIDATOR_OPTIONS:
+                Options = float(input("What do you want to do?: "))
+                print("      ")
+                if (Options < 0) or (Options > 4):
+                    int("Force Error") 
+                else:
+                    OptionNumber1(Options)
+         
+        #------------------------------------------------------------        
+        except ValueError:
+            print("---------------------------------------")
+            print("Error only shows the displayed options")
+            print("---------------------------------------")
+            print("     ")
+
