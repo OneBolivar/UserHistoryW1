@@ -1,7 +1,11 @@
 from Option1 import OptionNumber1
+from Option2 import OptionNumber2
+global Inventory
+Inventory = {}
 
 def MenuOptions():
     VALIDATOR = True
+    
     while VALIDATOR:
         print("                   Welcome")
         print("=" * 50)
@@ -17,12 +21,14 @@ def MenuOptions():
             while VALIDATOR_OPTIONS:
                 Options = float(input("What do you want to do?: "))
                 print("      ")
-                if (Options < 0) or (Options > 4):
+                if (Options <= 0) or (Options > 4):
                     int("Force Error") 
                 elif Options == 1:
-                    OptionNumber1(Options)
+                    Inventory.update(OptionNumber1(Options))
+                    
                 elif Options == 2:
-                    print("AQUI VA LA OPCION 2")
+                    print(Inventory)
+                    #OptionNumber2()
                 elif Options == 3:
                     print("AQUI VA LA OPCION 3")
                 elif Options == 4:

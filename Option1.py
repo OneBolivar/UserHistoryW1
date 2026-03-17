@@ -1,5 +1,6 @@
 
 def OptionNumber1(Options):
+                   Inventory= {}
                    if Options == 1:
                         VALIDATOR_NAME = True 
                         while VALIDATOR_NAME:
@@ -15,7 +16,7 @@ def OptionNumber1(Options):
                                     product_price = float(input("Enter the product price: "))
                                     if product_price < 0:
                                         int("Force Error") 
-                                    else:#Otherwise
+                                    else:
                                         VALIDATOR_PRICE = False 
                                 except ValueError:
                                     print("ERROR! Invalid price (must be a positive number). Try again.")#
@@ -27,7 +28,15 @@ def OptionNumber1(Options):
                                     if product_quantity < 0:
                                         int("Force Error")  
                                     else:
+                                        print("Product successfully registered")
+                                        print("  ")
                                         VALIDATOR_QUANTITY = False  
                                 except ValueError:
                                     print("ERROR! Invalid quantity (must be a positive integer). Try again.")
-                        return (product_name, product_price, product_quantity)     
+                        #total = product_price * product_quantity
+                        Inventory[product_name]={
+                            "Price" : product_price,
+                            "Quantity" : product_quantity,
+                        }
+                        return(Inventory)   
+
