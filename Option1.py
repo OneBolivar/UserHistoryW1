@@ -35,8 +35,8 @@ def OptionNumber1(Options):
                                     print("ERROR! Invalid quantity (must be a positive integer). Try again.")
                         #total = product_price * product_quantity
                         Inventory[product_name]={
-                            "Price" : product_price,
-                            "Quantity" : product_quantity,
+                            "price" : product_price,
+                            "quantity" : product_quantity,
                         }
                         return(Inventory)   
 
