@@ -1,0 +1,23 @@
+import Option2
+
+def product_delete():
+    name = input("Enter the name of the product you wish to delete: ")
+    VALIDATOR = True
+    VALIDATOR_FALSE = False 
+    VALIDATOR_X = False
+    # Verificamos si existe en el inventario de Option2
+    if name in Option2.Inventory:
+        confirmar = input(f" Are you sure you want to delete '{name}'? (Yes/No): ").lower()
+        
+        if confirmar == 'yes':
+            del Option2.Inventory[name]
+            print(f" The product '{name}' has been successfully deleted.")
+            return VALIDATOR
+        else:
+            print(" Operation cancelled by the user")
+            return VALIDATOR_FALSE
+    else:
+        print(f" Error: The product '{name}' does not exist in the inventory.")
+        return VALIDATOR_X
+    
+
