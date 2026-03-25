@@ -2,6 +2,7 @@ from Option1 import OptionNumber1 # Importa la función OptionNumber1 del módul
 from Option2 import inventory_print # Importa la función para imprimir el inventario de Option2
 import Option2 # Importa el módulo Option2 completo para acceder a sus variables
 from Option3 import product_search # Importa la función de búsqueda del módulo Option4
+import Option4 # Importa el módulo Option4 completo para acceder a sus variables
 from Option6 import calculate_statistics # Importa la función de estadísticas del módulo Option3
 
 
@@ -39,13 +40,14 @@ def MenuOptions():
                     else:
                         print("El producto no existe.")
                 elif Options == 4:
-                    print("Aqui va la opcion actualizar producto")                
+                    name = input("¿Qué producto quieres actualizar?: ")
+                    Option4.product_update(name)
                 elif Options == 5:
                     print("Aqui va la opcion eliminar producto")
                 elif Options == 6:
                     calculate_statistics() # Ejecuta la función que procesa los datos numéricos
                 elif Options == 7: 
-                    print("Muchas gracias por usar nuestro sistema, tenga un bonito dia") 
+                    print("Thank you so much for using our system, have a nice day") 
                     VALIDATOR_OPTIONS = False
                     VALIDATOR = False
          
