@@ -5,6 +5,8 @@ from Option3 import product_search # Importa la función de búsqueda del módul
 import Option4 # Importa el módulo Option4 completo para acceder a sus variables
 import Option5 # Importa el módulo Option5 completo para acceder a sus variables    
 from Option6 import calculate_statistics # Importa la función de estadísticas del módulo Option3
+# from Option7 import save_csv
+
 
 
 def MenuOptions(): 
@@ -18,8 +20,10 @@ def MenuOptions():
         print("3. Search product") 
         print("4. Update product") 
         print("5. Delete product") 
-        print("6. Calculates statistics") 
-        print("7. Exit") 
+        print("6. Calculates statistics")
+        print("7. Save CSV")
+        print("8. Upload CSV") 
+        print("9. Exit") 
         
         #---------------------------------------------------------
         VALIDATOR_OPTIONS = True # Variable para validar la entrada del usuario
@@ -47,7 +51,12 @@ def MenuOptions():
                     Option5.product_delete()
                 elif Options == 6:
                     calculate_statistics() # Ejecuta la función que procesa los datos numéricos
-                elif Options == 7: 
+                elif Options == 7:
+                    print("save csv")
+                    # save_csv()
+                elif Options == 8:
+                    print("upload csv")                                    
+                elif Options == 9: 
                     print("Thank you so much for using our system, have a nice day") 
                     VALIDATOR_OPTIONS = False
                     VALIDATOR = False

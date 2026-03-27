@@ -1,19 +1,33 @@
-import Option2 # Importa el módulo Option2 para poder acceder al inventario global
+import Option2 
 
-def calculate_statistics(): # Define la función para calcular y mostrar estadísticas
-    total = 0 # Inicializa la variable total en cero para el acumulado de ventas
-    total_products = 0
-    product_added = {} # Crea un diccionario local vacío
-    product_added.update(Option2.Inventory) # Copia el contenido del inventario desde Option2 al diccionario local
-    print("---------------------------------------------------------") # Imprime una línea decorativa
-    print("Here are your statistics") # Muestra el encabezado de la sección de estadísticas
-    for product, details in product_added.items(): # Inicia un bucle para recorrer cada producto y su información
-        total += float((details['price'] * details['quantity'])) # Calcula el valor total por producto y lo suma al acumulado
-        total_products += details['quantity']
-    print("") # Imprime una línea en blanco para mejorar el formato
-    print("---------------------------------------------------------") # Imprime una línea divisoria
-    print("Total sales: ", total) # Muestra el valor total acumulado de todo el inventario
-    print("Total products:", total_products)
-    print("---------------------------------------------------------") # Imprime otra línea divisoria
-    print("") # Imprime una línea en blanco final
-    return # Finaliza la ejecución de la función y regresa al menú principal
+def calculate_statistics():
+    # 1. Fetch the inventory from the other module
+    product_added = {}
+    product_added.update(Option2.Inventory)
+
+    if not product_added:
+        print("\n The inventory is empty.")
+        return
+
+    # 2. Use a lambda to calculate the subtotal
+    # Usage: calculate_subtotal(product_data)
+    calculate_subtotal = lambda d: d['price'] * d['quantity']
+
+    # Sum quantities and subtotals by iterating through the dictionary
+    total_units = sum(d['quantity'] for d in product_added.values())
+    total_value = sum(calculate_subtotal(d) for d in product_added.values())
+
+    # 4. Find featured products using 'max' and a lambda
+    # We search in items (name, data) based on price or quantity
+    expensive_name, expensive_data = max(product_added.items(), key=lambda item: item[1]['price'])
+    stock_name, stock_data = max(product_added.items(), key=lambda item: item[1]['quantity'])
+
+    # 5. Display statistics in a readable format
+    print("\n---------------------------------------------------------")
+    print("                INVENTORY STATISTICS")
+    print("---------------------------------------------------------")
+    print(f"Total units:          {total_units}")
+    print(f"Total value:          ${total_value:,.2f}")
+    print(f"Most expensive:       {expensive_name} (${expensive_data['price']})")
+    print(f"Highest stock:        {stock_name} ({stock_data['quantity']} units)")
+    print("---------------------------------------------------------")
