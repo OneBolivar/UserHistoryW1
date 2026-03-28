@@ -1,4 +1,10 @@
-from menu import MenuOptions # Importa la función MenuOptions desde el archivo llamado menu.py
-MenuOptions()                # Llama e inicia la función para mostrar el menú al usuario
+from menu import MenuOptions # Imports the MenuOptions function from the file called menu.py
+
+# ENTRY POINT: This is the main application starter
+# Initializes and runs the inventory management system menu
+MenuOptions()                # Calls and initializes the function to display the menu to the user
+
+
+
 
 
