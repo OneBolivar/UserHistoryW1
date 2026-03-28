@@ -1,10 +1,12 @@
 
-
 def product_update(Inventory, name):
+    # PRODUCT UPDATE: Modify price and/or quantity of existing product
+    # Allows partial updates (price only, quantity only, or both)
     VALIDATOR = True
     VALIDATOR_FALSE = False
     VALIDATOR_X =False
-    # Verifica si existe el producto
+    
+    # CRITICAL CHECK: Verify product exists before attempting update
     producto = Inventory.get(name)
     
     if not producto:
@@ -19,6 +21,7 @@ def product_update(Inventory, name):
     
     option = input("Choose an option: ")
 
+    # UPDATE LOGIC: Modify selected fields directly in the dictionary
     if option == "1":
         producto["price"] = float(input("New price: "))
     elif option == "2":
@@ -36,31 +39,3 @@ def product_update(Inventory, name):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import Option2
-
-# def actualizar_producto(name, key, new_value):
-#     # 'key' será "price" o "quantity"
-#     VALIDATOR = True
-#     VALIDATOR_FALSE = False
-#     if name in Option2.Inventory:
-#         Option2.Inventory[name][key] = new_value
-#         return VALIDATOR
-#     return VALIDATOR_FALSE
-#     #----------------------------------------------------
-    
